@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         🐭️ MouseHunt - Halloween Helper
+// @name         🐭️ MouseHunt - Halloween Map Helper
 // @version      1.0.1
 // @description  Easily see and equip the cheese needed for Halloween Trick or Treat maps.
 // @license      MIT
