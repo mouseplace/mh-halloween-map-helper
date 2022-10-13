@@ -91,7 +91,7 @@
 			cheeseId: 'cauldron_tier_1_cheese'
 		},
 		{
-			name: 'Maize Harveste',
+			name: 'Maize Harvester',
 			cheese: 'Monterey Jack-O-Lantern',
 			cheeseId: 'cauldron_tier_1_cheese'
 		},
@@ -131,7 +131,7 @@
 			cheeseId: 'cauldron_tier_2_cheese'
 		},
 		{
-			name: 'Tomb Exhume',
+			name: 'Tomb Exhumer',
 			cheese: 'Bonefort',
 			cheeseId: 'cauldron_tier_2_cheese'
 		},
@@ -166,7 +166,7 @@
 			cheeseId: 'cauldron_tier_3_cheese'
 		},
 		{
-			name: 'Spectral Swashbuckle',
+			name: 'Spectral Swashbuckler',
 			cheese: 'Polter-Geitost',
 			cheeseId: 'cauldron_tier_3_cheese'
 		},
