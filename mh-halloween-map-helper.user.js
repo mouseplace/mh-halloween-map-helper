@@ -317,7 +317,6 @@
 			});
 
 			mouseContainer.appendChild(mouseButton);
-
 		});
 	};
 
