@@ -363,6 +363,15 @@
 		flex-direction: column;
 	}
 
+	.treasureMapView.event.halloween_treat_2021 .treasureMapView-goals-group-goal:hover:before,
+	.treasureMapView.event.halloween_trick_2021 .treasureMapView-goals-group-goal:hover:before {
+		box-shadow: 0 0 0 1px #646363;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+
 	.mh-halloween-cheese-selector {
 		margin-top: 0.5em;
 	}
