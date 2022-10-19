@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         🐭️ MouseHunt - Halloween Map Helper
-// @version      1.1.3
+// @version      1.1.4
 // @description  Easily see and equip the cheese needed for Halloween Trick or Treat maps.
 // @license      MIT
 // @author       bradp
@@ -13,6 +13,14 @@
 
 (function () {
 	'use strict';
+
+	const cheeseIdToId = {
+		super_brie_cheese: 1114,
+		cauldron_tier_1_cheese: 3305,
+		cauldron_tier_2_cheese: 3306,
+		cauldron_tier_3_cheese: 3307,
+		cauldron_tier_4_cheese: 3308,
+	};
 
 	const miceCheeses = [
 		{
@@ -252,21 +260,21 @@
 	 */
 	const addCheeseLinks = () => {
 		const overlayClasses = document.getElementById('overlayPopup').classList;
-		if (!overlayClasses.contains('treasureMapPopup')) {
+		if (! overlayClasses.contains('treasureMapPopup')) {
 			return;
 		}
 
 		const mapName = document.querySelector('.treasureMapView-mapMenu-rewardName');
-		if (!mapName) {
+		if (! mapName) {
 			setTimeout(addCheeseLinks, 500);
 			return;
 		}
 
-		if (!mapName.innerText) {
+		if (! mapName.innerText) {
 			return;
 		}
 
-		if (!mapName.innerText.includes('Halloween')) {
+		if (! mapName.innerText.includes('Halloween')) {
 			return;
 		}
 
@@ -275,7 +283,6 @@
 			setTimeout(addCheeseLinks, 500);
 		}
 
-
 		mouseIcon.forEach((mouse) => {
 			const classes = mouse.classList;
 			if (classes.contains('complete')) {
@@ -283,32 +290,38 @@
 			}
 
 			const mouseName = mouse.querySelector('.treasureMapView-goals-group-goal-name span');
-			if (!(mouseName && mouseName.textContent)) {
+			if (! (mouseName && mouseName.textContent)) {
 				return;
 			}
 
 			const mouseContainer = mouse.querySelector('.treasureMapView-goals-group-goal-name');
-			if (!mouseContainer) {
+			if (! mouseContainer) {
 				return;
 			}
 
 			// grab the data outof the micecheese array
 			const mouseData = miceCheeses.find((mouseCheese) => mouseCheese.name === mouseName.textContent);
-			if (!mouseData) {
+			if (! mouseData) {
 				return;
 			}
 
 			// add in a button and a background color
 			const mouseButton = document.createElement('a');
 			mouseButton.classList.add('mh-halloween-cheese-selector');
-			mouseButton.textContent = `Equip ${mouseData.cheese}`;
+
+			const currentCheese = user.bait_item_id; // eslint-disable-line no-undef
+			if (cheeseIdToId[ mouseData.cheeseId ] === currentCheese) {
+				mouseButton.textContent = `${ mouseData.cheese } equipped`;
+			} else {
+				mouseButton.textContent = `Equip ${ mouseData.cheese }`;
+			}
 
 			const parent = mouseContainer.parentNode.parentNode;
 			parent.classList.add('mh-halloween-cheese-' + mouseData.cheeseId);
 
 			parent.addEventListener('click', () => {
-				hg.utils.TrapControl.setBait(mouseData.cheeseId);
-				hg.utils.TrapControl.go();
+				hg.utils.TrapControl.setBait(mouseData.cheeseId); // eslint-disable-line no-undef
+				hg.utils.TrapControl.go(); // eslint-disable-line no-undef
 
 				const close = document.getElementById('jsDialogClose');
 				if (close) {
@@ -355,12 +368,12 @@
 	}
 
 	.mh-halloween-cheese-cauldron_tier_1_cheese {
-		background-color: #aa7d3d !important;
+		background-color: #ffaa4c !important;
 		border-radius: 5px;
 	}
 
 	.mh-halloween-cheese-cauldron_tier_2_cheese {
-		background-color: #c59ead !important;
+		background-color: #eac2d1 !important;
 		border-radius: 5px;
 	}
 
@@ -370,7 +383,7 @@
 	}
 
 	.mh-halloween-cheese-cauldron_tier_4_cheese {
-		background-color: #9abe2d !important;
+		background-color: #b5d652 !important;
 		border-radius: 5px;
 	}`);
 
