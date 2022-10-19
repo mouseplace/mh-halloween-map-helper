@@ -348,6 +348,7 @@
 	.treasureMapView.event.halloween_treat_2021 .treasureMapView-block-content .treasureMapView-goals-group-goal,
 	.treasureMapView.event.halloween_trick_2021 .treasureMapView-block-content .treasureMapView-goals-group-goal {
 		width: 90%;
+		cursor: initial;
 	}
 
 	.treasureMapView.event.halloween_treat_2021 .treasureMapView-goals-group-goal:hover:before,
