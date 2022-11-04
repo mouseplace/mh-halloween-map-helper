@@ -1,4 +1,4 @@
-# mh-halloween-map-helper
+# 🐭️ MouseHunt - Halloween Map Helper
 
 A Userscript for [MouseHunt](https://mousehuntgame.com) that allows you to easily see and equip the cheese needed for Halloween Trick or Treat maps.
 
